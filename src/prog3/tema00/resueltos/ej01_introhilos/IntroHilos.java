@@ -9,6 +9,7 @@ import javax.swing.JLabel;
 
 class IntroHilos
 {
+	//Esto es una prueba
 	private static boolean proceso = true;
 	//Declaramos los componentes label fuera para poder acceder a ellos desde la clase interna.
 	private static JLabel lblContador;
