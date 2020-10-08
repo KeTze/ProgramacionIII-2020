@@ -1,5 +1,6 @@
 package prog3.tema01.ejemplos;
 
+import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 
 /** Prueba de acceso por reflectividad a métodos
@@ -7,6 +8,8 @@ import java.lang.reflect.Method;
  */
 public class EjemploReflectividad {
 
+	private int contador;
+	private int contador2;
 	@SuppressWarnings("unused")  // Para que no salga el warning de que metodo1 no se usa
 	private void metodo1( int i ) {
 		System.out.println( "Método1 = " + i );
@@ -38,5 +41,10 @@ public class EjemploReflectividad {
 					e.printStackTrace();
 				}
 			}
+		
+		//Sacar el listado de atributos de la clase
+		Field[] fields = c.getDeclaredFields();
+		for (Field f : fields)
+			System.out.println( f );
 	}
 }
