@@ -4,7 +4,6 @@ import javax.swing.JButton;
 import javax.swing.SwingUtilities;
 
 /** Ejemplo de introducción a lambda con Java 8
- * @author andoni.eguiluz @ ingenieria.deusto.es
  */
 public class EjemploLambda {
 	

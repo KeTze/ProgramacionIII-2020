@@ -2,7 +2,6 @@ package prog3.tema01.ejemplos;
 import javax.swing.SwingUtilities;
 
 /** Concepto de first-order y de lambda
- * @author andoni.eguiluz @ ingenieria.deusto.es
  */
 public class ConceptoLambda {
 
