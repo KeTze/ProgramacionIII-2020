@@ -2,7 +2,6 @@ package prog3.tema01.ejemplos;
 import java.util.logging.*;
 
 /**Clase de ejemplo de loggers
- * @author andoni.eguiluz @ ingenieria.deusto.es
  */
 public class EjemploLogger {
 
@@ -15,14 +14,16 @@ public class EjemploLogger {
 	
 	public static void main(String argv[]) {
 		logger.setLevel( Level.ALL );  // Cambiando esto se loggean más o menos mensajes
-		// logger.addHandler( consoleHandler );
+		//logger.setUseParentHandlers(false);	//Quitamos la consola por defecto
 		try {
 			// Al logger se le pueden añadir gestores (handler) que además
 			// de a la consola de error saquen a fichero, xml, pantalla...
-			Handler h = new StreamHandler( System.out, new SimpleFormatter() );
-			h.setLevel( Level.FINEST );
-			logger.addHandler( h );  // Saca todos los errores a out
+			//La consola por defecto, siempre saca de INFO para arriba
+			/*Handler h = new StreamHandler( System.out, new SimpleFormatter() );	
+			h.setLevel( Level.INFO );
+			logger.addHandler( h );  // Saca todos los errores a out*/
 			logger.addHandler( new FileHandler( "EjemploLogger.log.xml") ); // Y también a un xml
+			
 		} catch (Exception e) {
 			logger.log( Level.SEVERE, e.toString(), e );
 		}
