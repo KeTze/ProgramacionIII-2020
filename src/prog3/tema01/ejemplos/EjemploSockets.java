@@ -10,7 +10,6 @@ import java.awt.event.*;
 /** Ejemplo de utilización de sockets para comunicar un programa "servidor"
  * con un "cliente" en el mismo equipo. El cliente puede enviar textos
  * al servidor, que envía un mensaje de confirmación con cada texto.
- * @author andoni.eguiluz @ ingenieria.deusto.es
  */
 public class EjemploSockets {
 

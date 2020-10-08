@@ -15,7 +15,6 @@ import java.awt.event.*;
  * con VARIOS "clientes" en el mismo equipo. El cliente puede enviar textos
  * al servidor, que envía un mensaje de confirmación con cada texto.
  * Si se manda un mensaje "hola" se rebota a todos los clientes
- * @author andoni.eguiluz @ ingenieria.deusto.es
  */
 public class EjemploSockets2 {
 
