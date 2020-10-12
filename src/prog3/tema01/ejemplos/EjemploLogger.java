@@ -14,15 +14,17 @@ public class EjemploLogger {
 	
 	public static void main(String argv[]) {
 		logger.setLevel( Level.ALL );  // Cambiando esto se loggean más o menos mensajes
-		//logger.setUseParentHandlers(false);	//Quitamos la consola por defecto
+		logger.setUseParentHandlers(false);	//Quitamos la consola por defecto
 		try {
 			// Al logger se le pueden añadir gestores (handler) que además
 			// de a la consola de error saquen a fichero, xml, pantalla...
 			//La consola por defecto, siempre saca de INFO para arriba
-			/*Handler h = new StreamHandler( System.out, new SimpleFormatter() );	
-			h.setLevel( Level.INFO );
-			logger.addHandler( h );  // Saca todos los errores a out*/
-			logger.addHandler( new FileHandler( "EjemploLogger.log.xml") ); // Y también a un xml
+			Handler h = new StreamHandler( System.out, new SimpleFormatter() );	
+			h.setLevel( Level.ALL );
+			logger.addHandler( h );  // Saca todos los errores a out
+			Handler h2 =  new FileHandler( "EjemploLogger.log.xml");
+			h2.setLevel(Level.INFO);
+			logger.addHandler( h2 ); // Y también a un xml
 			
 		} catch (Exception e) {
 			logger.log( Level.SEVERE, e.toString(), e );
