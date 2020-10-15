@@ -2,6 +2,7 @@ package prog3.tema01.ejemplos;
 
 import java.io.*;
 import java.net.Socket;
+import java.util.Date;
 import java.net.ServerSocket;
 import java.awt.*;
 import javax.swing.*;
@@ -128,11 +129,17 @@ public class EjemploSockets {
 	    			String textoRecibido = inputDesdeCliente.readLine();
 	    			if(textoRecibido.equals("fin")) {
 	    				break;
+	    			} else if(textoRecibido.equals("hora")) {
+	    				outputACliente.println("Hora: [" + new Date() +  "]" );
+	    			} else if(textoRecibido.equals("IP")) {
+	    				outputACliente.println("IP: [" + socket.getInetAddress() +  "]" );
+	    			} else {
+	    				lEstado.setText( "Recibido de cliente: [" + textoRecibido + "]" );
+		    			taMensajes.append( textoRecibido + "\n" );
+		    			taMensajes.setSelectionStart( taMensajes.getText().length() );
+		    			outputACliente.println("Recibido: [" + textoRecibido + "]" );
 	    			}
-	    			lEstado.setText( "Recibido de cliente: [" + textoRecibido + "]" );
-	    			taMensajes.append( textoRecibido + "\n" );
-	    			taMensajes.setSelectionStart( taMensajes.getText().length() );
-	    			outputACliente.println("Recibido: [" + textoRecibido + "]" );
+	    			
 	    		}
 	    		lEstado.setText( "El cliente se ha desconectado." );
 	    		socket.close();
