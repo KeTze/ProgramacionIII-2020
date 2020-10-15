@@ -19,6 +19,7 @@ public class JavaFuncional {
 
 	private static JLabel lSalida = new JLabel( " " );
 	private static JTextField tfEntrada = new JTextField( 20 );
+	private static JComboBox<String> cbOpciones = new JComboBox();
 	
 	/** Crea ventana de ejemplo con un cuadro de texto y un botón
 	 * @param args	No utilizado
@@ -35,11 +36,88 @@ public class JavaFuncional {
 		pEntrada.add( bProcesar );
 		f.add( pEntrada, BorderLayout.NORTH );
 		f.add( lSalida, BorderLayout.SOUTH );
+		f.add( cbOpciones, BorderLayout.CENTER );
+		cbOpciones.addItem("Visualizar");
+		cbOpciones.addItem("Media");
+		
+		/*bProcesar.addActionListener(new ActionListener(){
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				proceso();
+			}
+		});*/
+		
+		bProcesar.addActionListener(
+				(e) -> {proceso();}
+		);
+		
 		// Visualizar
 		f.pack();
 		f.setLocationRelativeTo( null );
 		f.setVisible( true );
 	}
+	
+	private static void proceso() {
+		System.out.println("PROCESA!!!");
+		ArrayList<String> listaString = listaDeStrings(tfEntrada.getText());	
+		ArrayList<Integer> listaEnteros = listaDeInts(listaString);
+		/*Thread t = new Thread(new Runnable(){
+			@Override
+			public void run() {
+				for(int i: listaEnteros) {
+					lSalida.setText(i + "");
+					try {
+						Thread.sleep(2000);
+					} catch (InterruptedException e) { e.printStackTrace();}
+					lSalida.setText(" ");
+				}
+			}
+		});*/
+		/*Thread t = new Thread(
+			() -> {
+				for(int i: listaEnteros) {
+					lSalida.setText(i + "");
+					try {
+						Thread.sleep(2000);
+					} catch (InterruptedException e) { e.printStackTrace();}
+					lSalida.setText(" ");
+				}
+		});
+		t.start();*/
+		
+		if(cbOpciones.getSelectedItem() != null) {
+			if(cbOpciones.getSelectedItem().equals("Visualizar") ) {
+				visualizarCada2Segundos(listaEnteros);
+			} else if(cbOpciones.getSelectedItem().equals("Media") ) {
+				calcularMedia(listaEnteros);
+			}
+		}
+	}
+	
+	private static void visualizarCada2Segundos(ArrayList<Integer>listaEnteros) {
+		Thread t = new Thread(
+			() -> {
+				for(int i: listaEnteros) {
+					lSalida.setText(i + "");
+					try {
+						Thread.sleep(2000);
+					} catch (InterruptedException e) { e.printStackTrace();}
+					lSalida.setText(" ");
+				}
+		});
+		t.start();
+	}
+	
+	private static void calcularMedia (ArrayList<Integer>listaEnteros) {
+		int suma = 0;
+		for(int i: listaEnteros) {
+			suma += i;
+		}
+		lSalida.setText("Media de los números = " + (suma*1.0/listaEnteros.size()));
+	}
+	
+	
 	
 	/** Devuelve un arraylist de strings partiendo de un string con comas
 	 * @param lista	Lista de substrings separados por comas
@@ -69,5 +147,11 @@ public class JavaFuncional {
 		}
 		return ret;
 	}
+	
+	// Runnable --> run()
+	// Consumer<T> --> void accept(T)
+	// Predicate<T> --> boolean test(T)
+	// Supplier<T> --> T get()
+	// Function<T,R> --> R apply(T)
 
 }
