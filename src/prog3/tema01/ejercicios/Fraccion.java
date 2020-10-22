@@ -95,6 +95,19 @@ public class Fraccion {
 		}
 	}
 	
+	private void simplifica() {
+		int mcd = mcd( num, den );
+		num /= mcd;
+		den /= mcd;
+		if (den<0) {  // Pone el signo siempre en el numerador (5/-3 pasa a ser -5/3 por ejemplo)
+			den *= -1;
+			num *= -1;
+		}
+		if (num==0) {  // La fracción con numerador 0 es siempre 0, el denominador da igual, se pone a 1
+			den = 1;
+		}
+	}
+	
 	// Utilidad: Devuelve el máximo común divisor de 2 números positivos
 	private static int mcd( int num1, int num2 ) {
 		int divisor = num1<num2 ? num1 : num2;  // El número mayor que hay que probar para calcular el MCD es el más pequeño. De ahí hacia abajo
