@@ -6,8 +6,6 @@ import javax.mail.Authenticator;
 import javax.mail.PasswordAuthentication;
 import javax.mail.Session;
 
-import prog3.tema01.ejemplos_proximos.EjemploMail;
-
 public class SendMail {
 	public static void main(String[] args) {
 		final String fromEmail = "prog3@epolledo.com"; //requires valid gmail id
