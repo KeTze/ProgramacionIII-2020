@@ -20,6 +20,9 @@ public class EjemploNumberFormat {
 		// Ver documentación de java.util.Formatter
 		System.out.println( "Formato a través de " +
 				String.format( "String.format(): #%1$5d# vs. #%2$,12.1f#", 123, d ) );
+		//2$ - Segundo argumento
+		//, - Separadores locales
+		//Tamaño de la cadena
 	}
 
 }
