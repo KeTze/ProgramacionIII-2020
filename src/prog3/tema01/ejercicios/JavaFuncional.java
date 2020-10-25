@@ -4,6 +4,7 @@ import java.awt.*;
 import java.awt.event.*;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
+import java.util.function.Consumer;
 
 import javax.swing.*;
 
@@ -20,6 +21,7 @@ public class JavaFuncional {
 	private static JLabel lSalida = new JLabel( " " );
 	private static JTextField tfEntrada = new JTextField( 20 );
 	private static JComboBox<String> cbOpciones = new JComboBox();
+	private static ArrayList<Consumer<ArrayList<Integer>>> listaMetodos = new ArrayList<>();
 	
 	/** Crea ventana de ejemplo con un cuadro de texto y un botón
 	 * @param args	No utilizado
@@ -37,8 +39,11 @@ public class JavaFuncional {
 		f.add( pEntrada, BorderLayout.NORTH );
 		f.add( lSalida, BorderLayout.SOUTH );
 		f.add( cbOpciones, BorderLayout.CENTER );
-		cbOpciones.addItem("Visualizar");
-		cbOpciones.addItem("Media");
+		cbOpciones.addItem("Visualizar cada 2 segs.");
+		cbOpciones.addItem("Calcular Media");
+		
+		listaMetodos.add(JavaFuncional::visualizarCada2Segundos);
+		listaMetodos.add(JavaFuncional::calcularMedia);
 		
 		/*bProcesar.addActionListener(new ActionListener(){
 			@Override
@@ -62,36 +67,17 @@ public class JavaFuncional {
 		System.out.println("PROCESA!!!");
 		ArrayList<String> listaString = listaDeStrings(tfEntrada.getText());	
 		ArrayList<Integer> listaEnteros = listaDeInts(listaString);
-		/*Thread t = new Thread(new Runnable(){
-			@Override
-			public void run() {
-				for(int i: listaEnteros) {
-					lSalida.setText(i + "");
-					try {
-						Thread.sleep(2000);
-					} catch (InterruptedException e) { e.printStackTrace();}
-					lSalida.setText(" ");
-				}
-			}
-		});*/
-		/*Thread t = new Thread(
-			() -> {
-				for(int i: listaEnteros) {
-					lSalida.setText(i + "");
-					try {
-						Thread.sleep(2000);
-					} catch (InterruptedException e) { e.printStackTrace();}
-					lSalida.setText(" ");
-				}
-		});
-		t.start();*/
 		
-		if(cbOpciones.getSelectedItem() != null) {
-			if(cbOpciones.getSelectedItem().equals("Visualizar") ) {
+		if(cbOpciones.getSelectedIndex() != -1) {
+			/*if(cbOpciones.getSelectedItem().equals("Visualizar") ) {
 				visualizarCada2Segundos(listaEnteros);
 			} else if(cbOpciones.getSelectedItem().equals("Media") ) {
 				calcularMedia(listaEnteros);
-			}
+			}*/
+			//((ProcesaListaEnteros)cbOpciones.getSelectedItem()).procesa(listaEnteros);
+			
+			listaMetodos.get(cbOpciones.getSelectedIndex()).accept(listaEnteros);
+			
 		}
 	}
 	
