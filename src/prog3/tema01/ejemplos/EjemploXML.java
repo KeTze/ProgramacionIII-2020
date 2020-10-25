@@ -26,9 +26,9 @@ public class EjemploXML {
             // Obtengo el documento, a partir del XML
             Document documento = builder.parse(new File("EjemploLogger.log.xml"));
  
-            // Cojo todas las etiquetas coche del documento
+            // Cojo todas las etiquetas del documento
             NodeList listaLogs = documento.getElementsByTagName("record");
- 
+            
             // Recorro las etiquetas
             for (int i = 0; i < listaLogs.getLength(); i++) {
                 // Cojo el nodo actual
