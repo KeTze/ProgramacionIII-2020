@@ -2,6 +2,7 @@ package prog3.tema01.ejercicios;
 
 import static org.junit.Assert.*;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 
