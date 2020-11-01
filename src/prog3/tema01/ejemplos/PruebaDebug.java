@@ -13,6 +13,7 @@ public class PruebaDebug {
 	}
 	private static void sacaMens( String mens ) {
 		System.out.println( "Mensaje: " + mens + " (longitud " + mens.length() + ")" );
+		System.out.println("Hola!");
 	}
 	public static void main(String[] args) {
 		mensajeaNumeros(7);

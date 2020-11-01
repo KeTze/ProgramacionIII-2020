@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2020-10-21T11:41:03</date>
+  <millis>1603273263886</millis>
+  <sequence>0</sequence>
+  <logger>prog3.tema01.ejemplos.EjemploLogger</logger>
+  <level>INFO</level>
+  <class>prog3.tema01.ejemplos.EjemploLogger</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Empezando</message>
+</record>
+<record>
+  <date>2020-10-21T11:41:03</date>
+  <millis>1603273263927</millis>
+  <sequence>9</sequence>
+  <logger>prog3.tema01.ejemplos.EjemploLogger</logger>
+  <level>SEVERE</level>
+  <class>prog3.tema01.ejemplos.EjemploLogger</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>error de cálculo</message>
+  <exception>
+    <message>java.lang.ArithmeticException: / by zero</message>
+    <frame>
+      <class>prog3.tema01.ejemplos.EjemploLogger</class>
+      <method>main</method>
+      <line>36</line>
+    </frame>
+  </exception>
+</record>
+<record>
+  <date>2020-10-21T11:41:03</date>
+  <millis>1603273263931</millis>
+  <sequence>10</sequence>
+  <logger>prog3.tema01.ejemplos.EjemploLogger</logger>
+  <level>INFO</level>
+  <class>prog3.tema01.ejemplos.EjemploLogger</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Se acabó</message>
+</record>
+</log>
