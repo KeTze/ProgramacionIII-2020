@@ -2,10 +2,15 @@ package prog3.tema04.ejemplos;
 
 public class RecursividadEjemplos {
 	public static void main(String[]args) {
-		f(100);
+		//f(100);
 		/*factorial(14, 0, 1);
 		factorial2(14, 1);
 		System.out.println("Valor: " + factorial3(14));*/
+		//System.out.println(fib(4));
+		
+		int [] v = {1, 2, 10, 11, 15, 17, 21, 43, 57, 83, 84, 85, 86, 87, 89, 110 };
+		int donde = busquedaBinaria(v, 12);
+		System.out.println("Posicion: " + donde);
 	}
 	
 	public static void f(int valor) {
@@ -38,4 +43,32 @@ public class RecursividadEjemplos {
 			return n * factorial3(n-1);
 		}
 	}
+	
+	public static long fib (int n){
+		if(n == 0) return 0;
+		else if(n == 1) return 1;
+		else return fib(n-1)+fib(n-2);
+	}
+	
+	// ----- BUSQUEDA BINARIA -----
+	
+	public static int busquedaBinaria(int[] v, int valorBuscado){
+		return busq(v, valorBuscado, 0, v.length-1);
+	}
+	
+	public static int busq (int[] v, int valorBuscado, int ini, int fin) {
+		if(ini>fin) {
+			return -1;
+		} else {
+			int mitad = (ini+fin)/2;
+			if(v[mitad] == valorBuscado){
+				return mitad;
+			} else if(v[mitad] < valorBuscado){
+				return busq(v, valorBuscado, mitad+1, fin);
+			} else {
+				return busq(v, valorBuscado, ini, mitad-1);
+			}
+		}
+	}
+	
 }
