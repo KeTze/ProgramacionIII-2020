@@ -25,21 +25,25 @@ public class AquilesYLaTortuga {
 	}
 	
 	// Algoritmo recursivo
-	public static double cuandoSeEncuentran() {
+	public static double cuandoSeEncuentran( double tIni, double tFin ) {
 		numLlams++; // Auxiliar para contar el número de llamadas
-		return 0;  // TODO ???
+		if (Math.abs(tIni-tFin) < 0.001) {	//tIni == tFin
+			return tIni;
+		} else {
+			//TODO
+		}
 	}
 	
 	private static int numLlams = 0;
 	public static void main(String[] args) {
-		double t = 0;  // Tiempo de prueba
+		double t = 50000;  // Tiempo de prueba
 		System.out.println( "Ejemplo. Tiempo = " + t + " segundos" );
 		System.out.println( " Aquiles está en " + dondeEstaAquiles(t));
 		System.out.println( " La tortuga está en " + dondeEstaLaTortuga(t));
 		System.out.println( "Solución:" );
 		
 		try {
-			double tSol = 0; // TODO ?? cuandoSeEncuentran( );
+			double tSol = cuandoSeEncuentran( 0.0, t );
 			System.out.println( "Tiempo de encuentro = " + tSol );
 			System.out.println( "  Distancia de encuentro = " + dondeEstaAquiles(tSol));
 		} catch (StackOverflowError e) {
