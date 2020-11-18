@@ -8,9 +8,11 @@ public class RecursividadEjemplos {
 		System.out.println("Valor: " + factorial3(14));*/
 		//System.out.println(fib(4));
 		
-		int [] v = {1, 2, 10, 11, 15, 17, 21, 43, 57, 83, 84, 85, 86, 87, 89, 110 };
+		/*int [] v = {1, 2, 10, 11, 15, 17, 21, 43, 57, 83, 84, 85, 86, 87, 89, 110 };
 		int donde = busquedaBinaria(v, 12);
-		System.out.println("Posicion: " + donde);
+		System.out.println("Posicion: " + donde);*/
+		
+		hanoi(3, 'a', 'c', 'b');
 	}
 	
 	public static void f(int valor) {
@@ -71,4 +73,15 @@ public class RecursividadEjemplos {
 		}
 	}
 	
+	// HANOI
+	
+	public static void hanoi(int n, char origen, char destino, char auxiliar) {
+		if(n == 1){
+			System.out.println("Mover 1 de " + origen + " a " + destino);
+		} else {
+			hanoi(n-1, origen, auxiliar, destino);
+			System.out.println("Mover " + n + " de " + origen + " a " + destino);
+			hanoi(n-1, auxiliar, destino, origen);
+		}
+	}
 }
