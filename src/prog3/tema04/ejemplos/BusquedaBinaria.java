@@ -56,7 +56,7 @@ public class BusquedaBinaria {
 		// }
 		
 		// Segundo test: Cómo se busca cuando hay duplicidades en los datos
-		System.out.println();
+		/*System.out.println();
 		array = new int[] { 1, 1, 2, 2, 2, 2, 2, 3, 4, 5 };
 		int donde2 = buscaEnVector( array, 2, 0, array.length-1 );
 		System.out.println( "Dividiendo por > | == | <");
@@ -67,7 +67,7 @@ public class BusquedaBinaria {
 		System.out.println( "  El 2 se encuentra en la posición " + donde2 + " en " + Arrays.toString(array) );
 		donde2 = buscaEnVector3b( array, 2, 0, array.length-1 );
 		System.out.println( "Dividiendo por > | <=");
-		System.out.println( "  El 2 se encuentra la posición " + donde2 + " en " + Arrays.toString(array) );
+		System.out.println( "  El 2 se encuentra la posición " + donde2 + " en " + Arrays.toString(array) );*/
 	}
 
 	private static int[] inicializaVector( int tam ) {
