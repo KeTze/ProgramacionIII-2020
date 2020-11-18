@@ -30,7 +30,16 @@ public class AquilesYLaTortuga {
 		if (Math.abs(tIni-tFin) < 0.001) {	//tIni == tFin
 			return tIni;
 		} else {
-			//TODO
+			double tMedio = (tIni+tFin)/2;
+			double sAquiles = dondeEstaAquiles(tMedio);
+			double sTortuga = dondeEstaLaTortuga(tMedio);
+			System.out.println(tIni + "," + tFin);
+			System.out.println("   " + sAquiles + "," + sTortuga);
+			if(sAquiles <= sTortuga) {
+				return cuandoSeEncuentran(tMedio, tFin);
+			} else {
+				return cuandoSeEncuentran(tIni, tMedio);
+			}
 		}
 	}
 	
