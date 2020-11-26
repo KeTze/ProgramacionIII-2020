@@ -2,8 +2,6 @@ package prog3.tema05.ejemplos;
 
 import java.util.*;
 
-import es.deusto.prog3.cap06.pr0506resuelta.gui.VentanaBancoDePruebas;
-
 public class PruebaSets {
 	static HashSet<Punto> hS;
 	static HashSet<String> hSS;
@@ -46,7 +44,8 @@ class Punto {
 	
 	@Override
 	public int hashCode() {
-		return x + y;
+		//return x + y;
+		return Objects.hash(x, y);
 	}
 	@Override
 	public boolean equals(Object obj) {
