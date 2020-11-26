@@ -57,13 +57,13 @@ class NoHasheada {
 	public int hashCode() {
 		return 0;  // Un mal hashcode
 	}
-//	@Override
-//	public boolean equals(Object obj) {
-//		if (obj instanceof NoHasheada) {
-//			return valor==((NoHasheada)obj).valor;
-//		} else
-//			return false;
-//	}
+	@Override
+	public boolean equals(Object obj) {
+		if (obj instanceof NoHasheada) {
+			return valor==((NoHasheada)obj).valor;
+		} else
+			return false;
+	}
 	@Override
 	public String toString() {
 		return ""+valor;
@@ -93,10 +93,7 @@ class MalHasheada {
 	}
 }
 
-class NoOrdenada 
-// Observa que sin implementar el interfaz genera una excepción de ejecución:
-	implements Comparable<NoOrdenada>
-//
+class NoOrdenada implements Comparable<NoOrdenada>
 {
 	String nick;
 	public NoOrdenada( String nick ) {
@@ -108,7 +105,7 @@ class NoOrdenada
 	}
 	public int compareTo(NoOrdenada o) {
 		// Observa que si la comparación está mal el set no funciona:
-		return 0;
-		// return nick.compareTo(o.nick);  // esto es lo correcto
+		//return 0;
+		return nick.compareTo(o.nick);  // esto es lo correcto
 	}
 }
